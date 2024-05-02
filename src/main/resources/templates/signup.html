@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section class="signup">
+    <div class="container text-center"><h1 class="test-center" style="margin:5px;">Create your account</h1>
+        <div class="row">
+            <div class="col" style="height:90vh;margin:10px">
+                <img class="logo" src="" th:src="@{/image/reg_logo.jpg}" alt="" >
+            </div>
+            <div class="col" style="height:90vh;">
+                <div th:if="${session.message}" class="alert " th:classappend="${session.message.type}" role="alert">
+                    <p th:text="${session.message.content}"></p>
+                </div>
+                <form th:action="@{/signup}"
+                      method="post"
+                      th:object="${RegisterData}"
+                      enctype="multipart/form-data">
+                    <!--first name field-->
+                    <div class="mb-3">
+                        <label for="exampleInputFirstName" class="form-label">First Name</label>
+                        <input type="text"
+                               name="first_name"
+                               class="form-control"
+                               id="exampleInputFirstName"
+                               th:value="${RegisterData.first_name}"
+                               th:classappend="${#fields.hasErrors('first_name')} ? 'is-invalid' : ''"
+                               placeholder="Enter first name"
+                               aria-describedby="emailHelp">
+                        <!-- to print errors -->
+                        <div th:each="error : ${#fields.errors('first_name')}" th:text="${error}" class="invalid-feedback"></div>
+                    </div>
+
+                    <!--last name field-->
+                    <div class="mb-3">
+                        <label for="exampleInputLastName" class="form-label">Last Name</label>
+                        <input type="text"
+                               name="last_name"
+                               class="form-control"
+                               placeholder="Enter last name"
+                               th:value="${RegisterData.last_name}"
+                               th:classappend="${#fields.hasErrors('last_name')} ? 'is-invalid' : ''"
+                               id="exampleInputLastName"
+                               aria-describedby="emailHelp">
+                        <!-- to print errors -->
+                        <div th:each="error : ${#fields.errors('last_name')}" th:text="${error}" class="invalid-feedback"></div>
+                    </div>
+
+                    <!--email-->
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email"
+                               name="email"
+                               class="form-control"
+                               placeholder="Enter email address"
+                               th:value="${RegisterData.email}"
+                               th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''"
+                               id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                        <!-- to print errors -->
+                        <div th:each="error : ${#fields.errors('email')}" th:text="${error}" class="invalid-feedback"></div>
+                    </div>
+
+                    <!-- role field-->
+                    <div class="mb-3">
+                        <label for="exampleInputRole" class="form-label">User Role</label>
+                        <input type="text"
+                               name="role"
+                               class="form-control"
+                               placeholder="Enter user role"
+                               id="exampleInputRole"
+                               th:value="${RegisterData.role}"
+                               th:classappend="${#fields.hasErrors('role')} ? 'is-invalid' : ''"
+                               aria-describedby="emailHelp">
+                        <!-- to print errors -->
+                        <div th:each="error : ${#fields.errors('role')}" th:text="${error}" class="invalid-feedback"></div>
+                    </div>
+
+                    <!--password-->
+                    <div class="mb-3">
+                        <label for="exampleInputPassword" class="form-label" style="margin-left:auto">Password</label>
+                        <input type="text"
+                               name="password"
+                               class="form-control"
+                               placeholder="Enter password"
+                               id="exampleInputPassword"
+                               th:value="${RegisterData.password}"
+                               th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''"
+                               aria-describedby="emailHelp">
+                        <!-- to print errors -->
+                        <div th:each="error : ${#fields.errors('password')}" th:text="${error}" class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="custom-file">
+                        <input type="file"
+                               name="profileImage">
+                    </div>
+
+                    <!--agree-->
+                    <div class="mb-3 form-check">
+                        <input type="checkbox"
+                               name="agreed"
+                               class="form-check-input"
+                               id="exampleCheck1"
+                               th:classappend="${#fields.hasErrors('agreed')} ? 'is-invalid' : ''"
+                        >
+                        <label class="form-check-label" for="exampleCheck1">Agree All Terms & Conditions</label>
+                        <div th:each="error : ${#fields.errors('agreed')}" th:text="${error}" class="invalid-feedback"></div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-success">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>

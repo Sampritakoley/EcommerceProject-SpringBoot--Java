@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style></style>
+</head>
+<body>
+   <section>
+       <ul style="display:flex;">
+           <div class="box-plus" style="margin:10px;">
+               <a href="#" th:href="@{'/category/'+${cid}+'/product/'+${pid}+'/item'}" class="btn btn-secondary" style="margin:30px"><i class="fas fa-plus"></i></a>
+           </div>
+           <div class="container-search" style="margin:10px;width:80%;">
+               <div class="search-bar">
+                   <input type="text" id="search-key" placeholder="search any thing" name="q">
+                   <button type="submit" onclick="searchKey(this)"><i class="fas fa-search"></i></button>
+               </div>
+           </div>
+       </ul>
+
+
+       <div class="scrolling-wrapper">
+                   <div class="card" th:each="item : ${ItemList}" style="width: 20%%; height: 450px; text-align: center; padding: 10px; box-sizing: border-box; background-color: rgba(0, 0, 0, 0);">
+                       <div class="badge-box" th:if="${item.available}">
+                           <span class="badge">Available</span>
+                       </div>
+                       <img src="..." th:src="@{'/image/'+${item.image}}"  class="profile-pic" style="width: 100%; height: 250px; text-align: center; padding: 10px; box-sizing: border-box;"  alt="Profile image">
+                       <div class="card-body" style="color:white;overflow: hidden;">
+                           <h5 class="card-title" th:text="${item.name}"></h5>
+                           <ul style="text-align: left;">
+                               <li><p class="card-text" th:text="'₹'+${item.price}"></p></li>
+                               <li><p class="card-text" th:text="'Extra '+${item.offer}+' % Off'"></p></li>
+                               <li><p class="card-text" th:text="${item.description}"></p></li><!-- List Item -->
+                           </ul>
+                           <span class="itemId-value" style="display: none;" th:text="${item.id}"></span>
+                           <span class="wishlist-value" style="display: none;" th:text="${item.wishlist_id}"></span>
+
+                           <button  th:if="${item.cid==0}" onclick="addToCart(this)" class="btn btn-primary">Add to cart</button>
+                           <a href="#" th:if="${item.cid!=0}" th:href="@{'/cart/item/'}" class="btn btn-primary">Go to cart</a>
+
+
+                           <button th:if="${item.wishlist_id!=0}" onclick="removeWishList(this)" class="btn btn-primary" style="background-color: white;color:#f44336;"><i class="fas fa-heart"></i></button>
+                           <button th:if="${item.wishlist_id==0}" onclick="addWishList(this)" class="btn btn-primary" style="color: white;background-color:#f44336;;"><i class="fas fa-heart"></i></button>
+                       </div>
+                   </div>
+       </div>
+   </section>
+   <script src="@{/js/script.js}" th:src="@{/js/script.js}"></script>
+</body>
+</html>

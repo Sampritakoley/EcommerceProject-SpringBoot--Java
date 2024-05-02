@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+
+    <div class="contactcls">
+        <ul>
+            <div class="box-plus">
+                <a href="#" th:href="@{'/product_form/'+${cid}}" class="btn btn-secondary" style="margin:30px"><i class="fas fa-plus"></i></a>
+            </div>
+            <h1 class="test-center" id="contact-header" th:text="${CategoryName}"></h1>
+        </ul>
+        <div th:if="${session.rMessage}" class="alert " id="alertMessage" th:classappend="${session.rMessage.type}" role="alert" style="width:30%;margin-left:auto;">
+            <p th:text="${session.rMessage.content}"></p>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+               <ul class="row feature-list feature-list-sm">
+                  <div th:each="product : ${Products}" style="width: 27%; height: 100%; color: white; margin-top: 50px;">
+                     <div class="box-cat" style="width: 100%; height: 300px; text-align: center; padding: 10px; box-sizing: border-box;">
+                        <img src="..." th:src="@{'/image/'+${product.product_image}}" class="profile-pic" style="width: 80%; height: 140px; text-align: center; padding: 10px; box-sizing: border-box;"  alt="Profile image">
+                        <h5 class="card-title" style="margin: 0; font-size: 16px;" th:text="${product.product_name}"></h5>
+                        <a href="#" th:href="@{'/category/'+${cid}+'/products/'+${product.id}}" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;"><i class="fas fa-eye" style="margin-right: 5px;"></i>View items</a>
+                     </div>
+                  </div>
+               </ul>
+            </div>
+            <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center" style="margin:5px">
+                <li class="page-item" th:if="${currentPage!=0}">
+                    <a class="page-link" th:href="@{'/product_form/'+${cid}+'/'+${currentPage-1}}">Previous</a>
+                </li>
+                <li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a class="page-link" th:href="@{'/product_form/'+${cid}+'/'+${i-1}}" href="#"><span th:text="${i}"></span></a></li>
+
+                <li class="page-item" th:if="${currentPage!=totalPages-1}">
+                    <a class="page-link" th:href="@{'/product_form/'+${cid}+'/'+${currentPage+1}}" href="#">Next</a>
+                </li>
+            </ul>
+           </nav>
+            <div class="col" id="brand_id">
+                <main class="grid-item main">
+                    <div class="items">
+                        <div th:each="brand : ${Brands}" class="item-brand" style="width: 27%; height: 100%; color: white; margin-top: 50px;">
+                            <div class="box-cat" style="width: 100%; height: 250px; text-align: center; padding: 10px; box-sizing: border-box;">
+                                <img src="..." th:src="@{'/image/'+${brand.brand_logo}}" class="profile-pic" style="width: 80%; height: 140px; text-align: center; padding: 10px; box-sizing: border-box;"  alt="Profile image">
+                                <h5 class="card-title" style="margin: 0; font-size: 16px;" th:text="${brand.brand_name}"></h5>
+                                <!-- <a href="#" th:href="@{'/products_list/'+${category.id}}" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;"><i class="fas fa-eye" style="margin-right: 5px;"></i>View Products</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+       <!-- <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center" style="margin:5px">
+                <li class="page-item" th:if="${currentPage!=0}">
+                    <a class="page-link" th:href="@{'/contact-list/'+${currentPage-1}}">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a class="page-link" th:href="@{'/contact-list/'+${i-1}}" href="#"><span th:text="${i}"></span></a></li>
+
+                <li class="page-item" th:if="${currentPage!=totalPages-1}">
+                    <a class="page-link" th:href="@{'/contact-list/'+${currentPage+1}}" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>-->
+
+    </div>
+</section>
+</body>
+</html>

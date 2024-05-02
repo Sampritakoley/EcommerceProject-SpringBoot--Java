@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <div id="navigation" style="width:90%">
+        <ul class="nav-list" style="width:100%">
+            <li id="js-show-all">Billing Address</li>
+            <li id="js-search">Payment Mode</li>
+        </ul>
+    </div>
+    <div id="search-panel" class="panel">
+      <div class="scrolling-wrapper-address">
+            <div class="card-address" onclick="selectAddress(this)"  th:each="address, iterStat : ${AddressList}" th:attr="data-address-id=${iterStat.index + 1}" style="width: 90%; height: 100%; text-align: center; padding: 10px; box-sizing: border-box;background-color: rgb(0 0 0 / 70%);border: solid white;margin: 20px;">
+                <h3 class="card-title" th:text="${address.state + ' | '+address.zip}" style="font-size: 20px; color:white;"></h3>
+                <p class="card-text"  id="cityId" th:text="${address.city}" style="font-size: 20px; color:white;"></p>
+                <p class="card-text"  id="streetId" th:text="${address.street}" style="font-size: 20px; color:white;"></p>
+                <p class="card-text" id="address-line-id" th:text="${address.address_line}" style="font-size: 20px; color:white;"></p>
+                <span class="address-id-value" style="display: none;" th:text="${address.id}"></span>
+            </div>
+        </div>
+    </div>
+    <div id = "show-panel" class="panel">
+
+    </div>
+    <button onclick="order(this)" type="submit" class="btn btn-primary">Confirm Order</button>
+</section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<section class="signup">
+    <div class="container">
+        <h1 class="box-heading text-center">Welcome Back</h1>
+        <div class="row" id="rowid">
+            <div class="col" id="login-box">
+               <form th:action="@{/dologin}"
+                      method="post"
+                      action="#">
+                    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        Invalid username and password
+                    </div>
+
+                    <div th:if="${param.logout}" class="alert alert-success" role="alert">
+                        You have been logged out successfully!
+                    </div>
+
+                    <!--user name field-->
+
+                    <div class="form-box" id="top-box">
+                        <label for="username" class="form-label">User Name</label>
+                        <input type="text"
+                               name="username"
+                               class="form-control"
+                               id="username"
+                               placeholder="Enter user name"
+                               aria-describedby="emailHelp">
+                    </div>
+
+                    <!--password-->
+                    <div class="form-box">
+                        <label for="exampleInputPassword" class="form-label" style="margin-left:auto">Password</label>
+                        <input type="text"
+                               name="password"
+                               class="form-control"
+                               placeholder="Enter password"
+                               id="exampleInputPassword"
+                               aria-describedby="emailHelp">
+                        <!-- to print errors -->
+                    </div>
+
+                    <!--remember me-->
+                    <div class="form-box form-check">
+                        <input type="checkbox"
+                               name="agreed"
+                               class="form-check-input"
+                               id="exampleCheck1"
+                        >
+                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    </div>
+
+                    <div class="form-box">
+                        <button  type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+
+    <div class="categoryForm">
+
+        <form th:object="${ItemRequest}"
+              th:action="@{'/category/'+${cid}+'/product/'+${pid}+'/item'}"
+              method="post"
+              enctype="multipart/form-data">
+
+
+            <div class="position-relative">
+                <!--<div th:if="${Page==1}" class="position-absolute top-0 start-50 translate-middle">
+                    <h1>Add Contact</h1>
+                </div>
+                <div th:if="${Page==0}" class="position-absolute top-0 start-50 translate-middle">
+                    <h1>Edit Contact</h1>
+                </div>-->
+
+                <div class="position-absolute top-100 start-50 translate-middle" style="transform: translate(-50%, +5%) !important; width:60%">
+                    <div class="container">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="exampleInputName" class="form-label"><i class="fas fa-user" style="margin:5px"></i>Name</label>
+                                    <input
+                                            type="text"
+                                            name="name"
+                                            th:value="${ItemRequest.name}"
+                                            class="form-control"
+                                            id="exampleInputName"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Enter contact name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="exampleInputOffer" class="form-label"><i class="fas fa-user" style="margin:5px"></i>Offer</label>
+                                    <input
+                                            type="text"
+                                            name="offer"
+                                            th:value="${ItemRequest.offer}"
+                                            class="form-control"
+                                            id="exampleInputOffer"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Enter contact name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="exampleInputPrice" class="form-label"><i class="fas fa-user" style="margin:5px"></i>Price</label>
+                                    <input
+                                            type="text"
+                                            name="price"
+                                            th:value="${ItemRequest.price}"
+                                            class="form-control"
+                                            id="exampleInputPrice"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Enter contact name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="exampleInputQuantity" class="form-label"><i class="fas fa-user" style="margin:5px"></i>Quantity</label>
+                                    <input
+                                            type="text"
+                                            name="quantity"
+                                            th:value="${ItemRequest.quantity}"
+                                            class="form-control"
+                                            id="exampleInputQuantity"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Enter contact name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input list="brow"
+                                           name="brand_name"
+                                           th:value="${ItemRequest.brand_name}"
+                                           class="form-control"
+                                           id="exampleInputBrand"
+                                           aria-describedby="emailHelp"
+                                           placeholder="Enter brand name">
+                                    <datalist id="brow">
+                                        <div th:each="brand : ${brands}">
+                                            <option th:value="${brand.brand_name}">
+                                        </div>
+                                    </datalist>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <!--............-->
+                                    <div class="Click-here">Click Here</div>
+
+
+
+
+                                    <div class="custom-model-main">
+                                        <div class="custom-model-inner">
+                                            <div class="close-btn">×</div>
+                                            <div class="custom-model-wrap">
+                                               <div class="pop-up-content-wrap">
+                                                   <div id="innerFormContent">
+
+                                                       <input type="hidden" id="cid" name="cid" th:value="${cid}" />
+                                                       <!-- Inner Form Fields -->
+                                                       <div>
+                                                           <label for="brandName">Brand Name:</label>
+                                                           <input type="text" id="brandName" name="brand_name">
+                                                       </div>
+
+                                                       <!-- Description -->
+                                                       <div>
+                                                           <label for="description">Description:</label>
+                                                           <textarea id="description" name="description" rows="4"></textarea>
+                                                       </div>
+
+                                                       <div>
+                                                           <label for="brandLogo">Upload File:</label>
+                                                           <input type="file" id="brandLogo" name="brand_Logo">
+                                                       </div>
+
+                                                       <!-- Button to Submit Inner Form -->
+                                                       <button type="button" id="submitInnerForm">Submit Inner Form</button>
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-overlay"></div>
+                                    </div>
+                                    <!--<a href="#" th:href="@{'/category/'+${cid}+'/brand'}" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;"><i class="fas fa-eye" style="margin-right: 5px;"></i></a>-->
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                   <textarea
+                                           name="description"
+                                           th:text="${ItemRequest.description}"
+                                           id="descriptionid"
+                                           placeholder="Enter something about the contact"
+                                           rows="5"
+                                   ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="custom-file">
+                                    <input type="file"
+                                           name="profileImage">
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+                    </div>
+                <div class="position-absolute top-100 start-50 translate-middle" style="transform: translate(-50%, +999%) !important;">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-success">Reset</button>
+                </div>
+                </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <ul class="row feature-list feature-list-sm">
+        <div th:each="order, iterStat : ${OrderList}" class="card" style="width: 20%;height:60%;color:black;margin-top:50px;">
+            <!--<a th:href="@{'/order-manage/' + ${order.orderTrackingId}}" style="text-decoration: none; color: inherit;">-->
+            <div class="card" style="width: 100%; height:100%; border:1px solid black ; margin:6px">
+                <a th:href="@{'/order-manage/' + ${order.orderTrackingId}}" style="text-decoration: none; color: inherit;">
+                <div class="card-body" th:style="${iterStat.index % 2 == 0 ? 'background-color: #FFE4B5;' : 'background-color: #FFDAB9;'}" style="color:black;">
+                    <h5 class="card-title" th:text="${'Order/#'+order.orderTrackingId}" style="color:black;"></h5>
+                    <p class="card-text" th:text="${' Total Order Price: ₹' + order.totalPrice}" style="color:black;"></p>
+                    <p class="card-text" th:text="${order.userEmail +' | '+order.userFirstName+' '+order.userLastName }" style="color:black;"></p>
+                    <ul class="status-box" style="text-align: right;color:black;">
+                        <li class="status open" th:if="${order.status=='Delivered'}">Delivered</li>
+                        <li class="status in-progress" th:unless="${order.status=='Delivered' or order.status=='Pending'}">In Progress</li>
+                        <li class="status dead" th:if="${order.status=='Pending'}">Pending</li>
+                    </ul>
+                </div>
+                </a>
+            </div>
+        </div>
+    </ul>
+   <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center" style="margin:5px">
+            <li class="page-item" th:if="${currentPage!=0}">
+                <a class="page-link" th:href="@{'/contact-list/'+${currentPage-1}}">Previous</a>
+            </li>
+            <li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a class="page-link" th:href="@{'/contact-list/'+${i-1}}" href="#"><span th:text="${i}"></span></a></li>
+
+            <li class="page-item" th:if="${currentPage!=totalPages-1}">
+                <a class="page-link" th:href="@{'/contact-list/'+${currentPage+1}}" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>-->
+</section>
+</body>
+</html>

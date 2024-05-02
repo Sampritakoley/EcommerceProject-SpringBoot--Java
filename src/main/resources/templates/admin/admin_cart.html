@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <section>
+      <div th:if="${totalCartItem!=0}" class="card" th:each="item : ${Items}" style="width: 75%; height: 450px; text-align: center; padding: 10px; box-sizing: border-box; background-color: rgba(0, 0, 0, 0);">
+          <div class="row align-items-center" style="width: 100%; height: 100%; text-align: center; padding: 10px; box-sizing: border-box;">
+              <div class="col" style="width: 40%; height: 100%; text-align: center; padding: 10px; box-sizing: border-box;">
+                <div class="badge-box" th:if="${item.available}">
+                   <span class="badge">Available</span>
+                </div>
+                  <img src="..." th:src="@{'/image/'+${item.image}}"  class="profile-pic" style="width: 100%; height: 100%; text-align: center; padding: 10px; box-sizing: border-box;"  alt="Profile image">
+              </div>
+             <div class="col" style="width: 40%; height: 100%; text-align: center; padding: 10px; box-sizing: border-box;">
+              <h5 class="card-title" th:text="${item.name}" style="font-size: 30px; color:white;"></h5>
+              <ul style="text-align: left; font-size: 25px; color:white;"> <!-- Unordered List -->
+                  <li><p class="card-text" th:text="'₹'+${item.price}"></p></li>
+                  <li><p class="card-text" th:text="'Extra '+${item.offer}+' % Off'"></p></li>
+                  <li><p class="card-text" th:text="${item.description}"></p></li><!-- List Item -->
+                  <li><p class="card-text" th:text="'Total '+${item.quantity}+' product is available'"></p></li>
+              </ul>
+                 <div class="row">
+                     <div class="col-md-4 mb-3">
+                         <div class="qty-container">
+                             <button onclick="decrementQuantity(this)" style="width:100px;height:40px;font-size: 25px;">-</button>
+                             <span class="quantity-value" style="font-size: 25px;width:100px;height:40px;color:white;" th:text="${item.cartQuantity}"></span>
+                             <button onclick="incrementQuantity(this)" style="width:100px;height:40px;font-size: 25px;">+</button>
+                         </div>
+                     </div>
+                     <div class="col-md-4 mb-3">
+                         <div class="price-container">
+                             <span class="eachItemPrice" style="display: none;" th:text="${item.price}"></span>
+                             <span class="price-value" style="font-size: 25px;width:100px;height:40px;color:white;" th:text="${item.cartPrice}"></span>
+                             <span class="cartItemId" style="display: none;font-size: 25px;width:100px;height:40px;color:white;" th:text="${item.cid}"></span>
+                         </div>
+                     </div>
+                 </div>
+          </div>
+          </div>
+      </div>
+      <h2 th:if="${totalCartItem!=0}" style="color:white; margin-left:10px;">Price Details</h2>
+      <table th:if="${totalCartItem!=0}" style="color:white;width:60%;margin-left:10px;">
+          <thead>
+          <tr>
+              <th>Item</th>
+              <th>Actual Price</th>
+              <th>Offer</th>
+              <th>Discount Price</th>
+          </tr>
+          </thead>
+          <tbody th:each="priceDetail : ${PriceDetailList}">
+          <tr th:if="${priceDetail.item_name!='subTotal'}">
+              <td th:text="${priceDetail.item_name+'('+priceDetail.quantity+')'}"></td>
+              <td th:text="${'₹'+priceDetail.actual_price}"></td>
+              <td th:text="${'- ₹'+priceDetail.offer}"></td>
+              <td th:text="${'₹'+priceDetail.discount_price}"></td>
+          </tr>
+          <span style="color:white;">-----------------------------------------------</span>
+          <tr th:if="${priceDetail.item_name=='subTotal'}" style=" font-weight: bold;">
+              <td >Total</td>
+              <td th:text="${'₹'+priceDetail.actual_price}"></td>
+              <td th:text="${'- ₹'+priceDetail.offer}"></td>
+              <td th:text="${'₹'+priceDetail.discount_price}"></td>
+          </tr>
+          </tbody>
+      </table>
+      <div th:if="${totalCartItem!=0}" class="order-container">
+          <span class="cartId" style="display: none;" th:text="${cartId}"></span>
+          <button onclick="orderPlace(this)" type="submit" class="btn btn-primary">Place Order</button>
+      </div>
+     <div th:if="${totalCartItem==0}" class="box-cart">
+         <h2 style="color:white;">SHOPPING CART</h2>
+         <img class="empty-cart" src="" th:src="@{/image/empty-cart.png}" alt="" >
+         <H2 style=" font-weight: bold;color:#DC143C;">Your Cart Is Currently Empty!!</H2>
+         <p style="color:#DC143C;">Must add items on the cart before you proceed to check out.</p>
+     </div>
+
+  </section>
+</body>
+</html>

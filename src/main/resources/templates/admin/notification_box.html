@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <div class="header">
+        <h3 id="header-content" style="color:white;"><i class="fas fa-bell" style="margin:5px;"></i>NOTIFICATIONS</h3>
+    </div>
+    <div class="list" th:each="notification, iterStat  : ${notificationList}">
+        <div class="list-item"  th:style="${iterStat.index % 2 == 0 ? 'background-color: #EEE8AA;' : 'background-color: #F0E68C;'}">
+            <img class="sh-logo" style="width:40px;height:40px" src="" th:src="@{/image/sh_logo.png}" alt="" >
+            <div class="list-item-body">
+                <h3 th:text="${notification.title}"></h3>
+                <p th:text="${notification.message}"></p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <h1 style="font-size:40px;color:white;margin:20px"><i class="fas fa-address-book" style="margin:10px;"></i>Addresses</h1>
+    <div class="scrolling-wrapper">
+        <div class="card" th:each="address : ${AddressList}" style="width: 30%; height: 100%; text-align: center; padding: 10px; box-sizing: border-box;background-color: rgb(0 0 0 / 70%);border: solid white;margin: 20px;">
+            <h3 class="card-title" th:text="${address.state + ' | '+address.zip}" style="font-size: 20px; color:white;"></h3>
+            <p class="card-text" th:text="${address.city}" style="font-size: 20px; color:white;"></p>
+            <p class="card-text" th:text="${address.street}" style="font-size: 20px; color:white;"></p>
+            <p class="card-text"  th:text="${address.address_line}" style="font-size: 20px; color:white;"></p>
+        </div>
+    </div>
+        <div class="form-group" style="margin:30px;">
+            <!--............-->
+            <div class="Click-here">+ ADD</div>
+
+            <div class="custom-model-main">
+                <div class="custom-model-inner">
+                    <div class="close-btn">×</div>
+                    <div class="custom-model-wrap">
+                        <h2>Add New Address</h2>
+                        <div class="pop-up-content-wrap">
+                            <div id="innerFormContent">
+
+                                <input type="hidden" id="cid" name="cid" />
+                                <!-- Inner Form Fields -->
+                                <div style="margin:10px;">
+                                    <label for="state">State</label>
+                                    <input type="text" id="state" name="state" >
+                                </div>
+
+                                <div style="margin:10px;">
+                                    <label for="City">City</label>
+                                    <input type="text" id="City" name="city" >
+                                </div>
+
+                                <div style="margin:10px;">
+                                    <label for="Street">Street</label>
+                                    <input type="text" id="Street" name="street" >
+                                </div>
+
+                                <div style="margin:10px;">
+                                    <label for="address-line">Address Line</label>
+                                    <input type="text" id="address-line" name="address_line" >
+                                </div>
+
+                                <div style="margin:10px;">
+                                    <label for="zip">Zip Code</label>
+                                    <input type="text" id="zip" name="zip" >
+                                </div>
+                                <span class="userId-value" style="display: none;" th:text="${userId}"></span>
+                                <!-- Button to Submit Inner Form -->
+                                <button type="button" onclick="addAddress(this)" id="submitInnerForm">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-overlay"></div>
+            </div>
+            <!--<a href="#" th:href="@{'/category/'+${cid}+'/brand'}" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;"><i class="fas fa-eye" style="margin-right: 5px;"></i></a>-->
+        </div>
+</section>
+</body>
+</html>

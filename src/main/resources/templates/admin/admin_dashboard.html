@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <h1>Welcome to private dashboard</h1>
+    <h2><span th:text="${user.first_name}"></span></h2>
+    <h2><span th:text="${user.last_name}"></span></h2>
+    <h2><span th:text="${user.email}"></span></h2>
+</section>
+</body>
+</html>
