@@ -1,6 +1,6 @@
-## E-Commerce Platform
 
-## E-Commerce Platform
+
+# E-Commerce Platform
 
 Here, I have designed and developed a feature-rich e-commerce platform to provide an online shopping experience. 
 It includes product management, user authentication, shopping cart functionality, order processing, and more.
