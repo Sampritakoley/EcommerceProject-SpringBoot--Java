@@ -30,4 +30,11 @@ user details service, password encoder, and custom authentication logic.
 Role-based authorization is used, where users are assigned roles that grant or restrict access to certain resources or operations. 
 
  ADMIN ![admin](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/73b5bcce-955f-4321-9494-aea190482eb6) USER ![user](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/0eca6854-4ab8-4f86-ab0d-29682fccd50a)
-
+ 
+ ## Category, Product, and Product Item Features:
+ This e-commerce project provides a flexible and robust system for managing product categories, products, and product items. 
+ This structure allows for complex inventory organization, supporting various e-commerce use cases. The platform also provides 
+ comprehensive management capabilities for administrators, including CRUD (Create, Read, Update, Delete) operations for categories, products, and product items.
+Category ![category](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/6df35907-2615-4254-a478-a28d3d87991b)
+Product ![product](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/6335113f-9fcb-4dbb-b0e3-5776015ad9a0)
+Product Item ![item-final](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/05e0f4d4-ab0b-4047-a8b9-d037f3e5709a)
