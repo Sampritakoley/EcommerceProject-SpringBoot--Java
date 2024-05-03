@@ -36,5 +36,5 @@ Role-based authorization is used, where users are assigned roles that grant or r
  This structure allows for complex inventory organization, supporting various e-commerce use cases. The platform also provides 
  comprehensive management capabilities for administrators, including CRUD (Create, Read, Update, Delete) operations for categories, products, and product items.
 Category ![category](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/6df35907-2615-4254-a478-a28d3d87991b)
-Product ![product](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/6335113f-9fcb-4dbb-b0e3-5776015ad9a0)
+Product ![product](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/8d6fd2c2-dc12-4ac0-ae12-689bc2f7e436)
 Product Item ![item-final](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/05e0f4d4-ab0b-4047-a8b9-d037f3e5709a)
