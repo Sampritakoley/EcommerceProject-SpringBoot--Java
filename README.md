@@ -46,3 +46,11 @@ This feature simplifies the checkout process, enabling users to quickly select f
 ![address](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/1c30d8b4-be7e-4b9a-acbe-fff40b3b07b9)
 ![billing address](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/9fbf8a88-876f-44c1-b93e-8f17c9e6c201)
 
+
+## Add to cart, wishlist :
+This Spring Boot-based e-commerce platform includes robust "Add to Cart" and "Wishlist" features. These features play a crucial role in the
+online shopping experience, allowing users to select products for immediate purchase or save them for future consideration.
+
+![wishlist](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/79a32f6e-3d5a-4732-a784-ecdb3bf19008)
+
+![cart item](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/96f3b57f-ef09-49bd-a8bc-b64f50530c02)
