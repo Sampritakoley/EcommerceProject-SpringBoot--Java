@@ -38,3 +38,10 @@ Role-based authorization is used, where users are assigned roles that grant or r
 Category ![category](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/6df35907-2615-4254-a478-a28d3d87991b)
 Product ![product](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/8d6fd2c2-dc12-4ac0-ae12-689bc2f7e436)
 Product Item ![item-final](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/05e0f4d4-ab0b-4047-a8b9-d037f3e5709a)
+
+## Address Book and Billing Address : 
+This Spring Boot-based e-commerce platform includes an address book feature, allowing users to manage multiple shipping and billing addresses conveniently.
+This feature simplifies the checkout process, enabling users to quickly select from their saved addresses, reducing friction during online shopping.
+
+![address](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/1c30d8b4-be7e-4b9a-acbe-fff40b3b07b9)
+![billing address](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/eeb4ac39-f58b-437b-99ef-861e8a1a1647)
