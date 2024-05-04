@@ -44,4 +44,5 @@ This Spring Boot-based e-commerce platform includes an address book feature, all
 This feature simplifies the checkout process, enabling users to quickly select from their saved addresses, reducing friction during online shopping.
 
 ![address](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/1c30d8b4-be7e-4b9a-acbe-fff40b3b07b9)
-![billing address](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/eeb4ac39-f58b-437b-99ef-861e8a1a1647)
+![billing address](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/9fbf8a88-876f-44c1-b93e-8f17c9e6c201)
+
