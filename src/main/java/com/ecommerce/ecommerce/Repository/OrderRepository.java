@@ -13,7 +13,7 @@ import java.util.UUID;
 public interface OrderRepository extends JpaRepository<Order,Integer> {
 
     @Transactional
-    @Query(value = "select DISTINCT o.* from customer_order o where user_id=:user_id",nativeQuery = true)
+    @Query(value = "select DISTINCT o.* from customer_order o where user_id=:user_id ORDER BY o.id DESC",nativeQuery = true)
     List<Order> getOrdersByUserId(@Param("user_id")int user_id);
 
     @Transactional

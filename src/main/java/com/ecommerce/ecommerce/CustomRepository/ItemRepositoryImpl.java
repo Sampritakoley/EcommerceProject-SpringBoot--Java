@@ -34,9 +34,22 @@ public class ItemRepositoryImpl implements ItemRepositoryCustom {
 
     public List<Items> getSearchItems(String key, int limit, int offset)
     {
-        String query = "select i.* from ecommerce_db.items as i inner join ecommerce_db.products as p on i.products_id=p.id inner join ecommerce_db.category as c on p.category_id=c.id where LOWER(i.name) like '"+key+"%' || LOWER(p.product_name) like '"+key+"%' || LOWER(c.name) like '"+key+"%'";
+        String query = "select i.* from ecommerce_db.items as i inner join ecommerce_db.products as p on i.products_id=p.id inner join ecommerce_db.category as c on p.category_id=c.id where LOWER(i.name) like '%"+key+"%' || LOWER(p.product_name) like '%"+key+"%' || LOWER(c.name) like '%"+key+"%'";
         return entityManager.createNativeQuery(query, Items.class).setMaxResults(limit)
                 .setFirstResult(offset).getResultList();
+    }
+
+    public List<Object[]> getItemByItemId(int cartId,int userId,int itemId){
+        StoredProcedureQuery storedProcedure = entityManager.createStoredProcedureQuery("getItemByItemId");
+        storedProcedure.registerStoredProcedureParameter("cartId", Integer.class, ParameterMode.IN);
+        storedProcedure.registerStoredProcedureParameter("userId", Integer.class, ParameterMode.IN);
+        storedProcedure.registerStoredProcedureParameter("itemId", Integer.class, ParameterMode.IN);
+        storedProcedure.setParameter("cartId", cartId);
+        storedProcedure.setParameter("userId", userId);
+        storedProcedure.setParameter("itemId", itemId);
+        storedProcedure.execute();
+        List<Object[]> resultList = storedProcedure.getResultList();
+        return resultList;
     }
 
 

@@ -14,7 +14,7 @@
                 </div>
                 <img src="..." th:src="@{'/image/'+${item.image}}"  class="wishlist-profile-pic"  alt="Profile image">
             </div>
-            <div class="col" style="width: 20%; height: 100%; text-align: center; padding: 10px; box-sizing: border-box;">
+            <div class="col" style="width: 20%; height: 100%; text-align: center; padding: 10px; box-sizing: border-box;overflow:hidden;">
                 <h5 class="card-title" th:text="${item.name}" style="font-size: 20px; color:white;"></h5>
                 <ul style="text-align: left; font-size: 15px; color:white;"> <!-- Unordered List -->
                     <li><p class="card-text" th:text="'Extra '+${item.offer}+' % Off'"></p></li>

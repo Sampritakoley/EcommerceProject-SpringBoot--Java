@@ -22,7 +22,7 @@
                 <span class="badge">Available</span>
             </div>
             <img src="..." th:src="@{'/image/'+${item.image}}"  class="profile-pic" style="width: 100%; height: 250px; text-align: center; padding: 10px; box-sizing: border-box;"  alt="Profile image">
-            <div class="card-body" style="color:white;">
+            <div class="card-body" style="color:white;overflow: hidden;">
                 <h5 class="card-title" th:text="${item.name}"></h5>
                 <ul style="text-align: left;">
                     <li><p class="card-text" th:text="'₹'+${item.price}"></p></li>
@@ -32,18 +32,6 @@
             </div>
         </div>
     </div>
-  <!--<nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center" style="margin:5px">
-            <li class="page-item" th:if="${currentPage!=0}">
-                <a class="page-link" th:href="@{'//'+${currentPage-1}}">Previous</a>
-            </li>
-            <li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a class="page-link" th:href="@{'/admin/category/'+${i-1}}" href="#"><span th:text="${i}"></span></a></li>
-
-            <li class="page-item" th:if="${currentPage!=totalPages-1}">
-                <a class="page-link" th:href="@{'/admin/category/'+${currentPage+1}}" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>-->
 </section>
 </body>
 </html>

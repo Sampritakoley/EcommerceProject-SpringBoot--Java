@@ -16,13 +16,8 @@
 
 
             <div class="position-relative">
-                <!--<div th:if="${Page==1}" class="position-absolute top-0 start-50 translate-middle">
-                    <h1>Add Contact</h1>
-                </div>
-                <div th:if="${Page==0}" class="position-absolute top-0 start-50 translate-middle">
-                    <h1>Edit Contact</h1>
-                </div>-->
 
+                <h1 class="test-center" id="contact-header">Add New Product Item</h1>
                 <div class="position-absolute top-100 start-50 translate-middle" style="transform: translate(-50%, +5%) !important; width:60%">
                     <div class="container">
 
@@ -93,9 +88,7 @@
                                            aria-describedby="emailHelp"
                                            placeholder="Enter brand name">
                                     <datalist id="brow">
-                                        <div th:each="brand : ${brands}">
-                                            <option th:value="${brand.brand_name}">
-                                        </div>
+                                        <option th:each="brand : ${brands}" th:value="${brand.brand_name}"></option>
                                     </datalist>
                                 </div>
                             </div>
@@ -103,49 +96,45 @@
                             <div class="col">
                                 <div class="form-group">
                                     <!--............-->
-                                    <div class="Click-here">Click Here</div>
-
-
-
-
-                                    <div class="custom-model-main">
+                                    <div class="Click-here" style="height:40px;width:60px;margin:0px;padding:10px;">ADD</div>
+                                    <div class="custom-model-main" style="height:400px;background-color:#0E7470;">
                                         <div class="custom-model-inner">
                                             <div class="close-btn">×</div>
-                                            <div class="custom-model-wrap">
-                                               <div class="pop-up-content-wrap">
-                                                   <div id="innerFormContent">
+                                            <div class="custom-model-wrap" style="background-color:#8DBDB9;">
+                                                <div class="pop-up-content-wrap">
+                                                    <div id="innerFormContent">
+                                                        <h2 style="color:black;">Add New Brand</h2>
+                                                        <input type="hidden" id="cid" name="cid" th:value="${cid}" />
+                                                        <div>
+                                                            <label for="brandName" style="display:flex;color:black;">Brand Name:</label>
+                                                            <input type="text" id="brandName" name="brand_name">
+                                                        </div>
 
-                                                       <input type="hidden" id="cid" name="cid" th:value="${cid}" />
-                                                       <!-- Inner Form Fields -->
-                                                       <div>
-                                                           <label for="brandName">Brand Name:</label>
-                                                           <input type="text" id="brandName" name="brand_name">
-                                                       </div>
+                                                        <!-- Description -->
+                                                        <div>
+                                                            <label for="description" style="display:flex;color:black;">Description:</label>
+                                                            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+                                                        </div>
 
-                                                       <!-- Description -->
-                                                       <div>
-                                                           <label for="description">Description:</label>
-                                                           <textarea id="description" name="description" rows="4"></textarea>
-                                                       </div>
+                                                        <div>
+                                                            <label for="brandLogo" style="display:flex;color:black;">Upload File:</label>
+                                                            <input type="file" id="brandLogo" name="brand_Logo">
+                                                        </div>
 
-                                                       <div>
-                                                           <label for="brandLogo">Upload File:</label>
-                                                           <input type="file" id="brandLogo" name="brand_Logo">
-                                                       </div>
-
-                                                       <!-- Button to Submit Inner Form -->
-                                                       <button type="button" id="submitInnerForm">Submit Inner Form</button>
-                                                   </div>
+                                                        <!-- Button to Submit Inner Form -->
+                                                        <button type="button" onclick="addNewBrand(this)" id="submitInnerForm" style="margin-left:40%;background-color:#008CBA;width:60px;color:white;">Add</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="bg-overlay"></div>
+                                            </div>
                                     </div>
                                     <!--<a href="#" th:href="@{'/category/'+${cid}+'/brand'}" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;"><i class="fas fa-eye" style="margin-right: 5px;"></i></a>-->
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col">
+
+                            <div class="col" style="margin:6px;">
                                 <div class="form-group">
                                    <textarea
                                            name="description"
@@ -156,7 +145,6 @@
                                    ></textarea>
                                 </div>
                             </div>
-                        </div>
                         <div class="row align-items-center">
                             <div class="col">
                                 <div class="custom-file">
@@ -165,14 +153,13 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
 
-                      </div>
                     </div>
                 <div class="position-absolute top-100 start-50 translate-middle" style="transform: translate(-50%, +999%) !important;">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-success">Reset</button>
+                    <button type="submit" class="btn btn-primary">Add +</button>
                 </div>
-                </div>
+            </div>
         </form>
     </div>
 </section>

@@ -10,4 +10,6 @@ public interface ItemRepositoryCustom {
     List<Object[]> getItemByUser(int cartId, int userId,int productId);
 
     public List<Items> getSearchItems(String key, int limit, int offset);
+
+    List<Object[]> getItemByItemId(int cartId,int userId,int ItemId);
 }

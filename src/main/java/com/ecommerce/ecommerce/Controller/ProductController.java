@@ -108,7 +108,7 @@ public class ProductController {
 
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
-            model.addAttribute("title", "Dashboard - Smart Contact Manager");
+            model.addAttribute("title", "Dashboard - ShopMart");
         } else {
             throw new IllegalStateException("Invalid authentication");
         }
@@ -119,9 +119,8 @@ public class ProductController {
         addModelAttribute(model);
         String userEmail = principal.getName();
         page = Math.max(0, page);
-        int pageSize = 4;
+        int pageSize = 8;
         Pageable pageable = PageRequest.of(page, pageSize);
-        User user = userRepository.getUserByEmail(userEmail);
         Category cat=categoryRepository.getCategoryById(cid);
         model.addAttribute("CategoryName",cat.getName());
         Page<Products> productList=productServiceInterface.getProductByCategoryId(cid,pageable);
@@ -171,12 +170,12 @@ public class ProductController {
             addModelAttribute(model);
             session.setAttribute("message", new Message("Something went wrong","alert-danger"));
         }
-        return "redirect:/products_list/"+cid;
+        return "redirect:/products_list/"+cid+"/0";
     }
 
 
     @GetMapping("/category/{cid}/products/{pid}")
-    public String getProductItems(@PathVariable Integer cid,@PathVariable Integer pid,
+    public String getProductItems(@PathVariable Integer cid,@PathVariable Integer pid,@RequestParam(required = false, name = "brandName") String brandName,
                                   Model model, Principal principal)
     {
         addModelAttribute(model);
@@ -198,9 +197,9 @@ public class ProductController {
         addModelAttribute(model);
         int limit=8;
         int offset=0;
-        if(page>1)
+        if(page>=1)
         {
-            offset=(page-1)*limit;
+            offset=(page)*limit;
         }
         List<Items> itemList=itemRepositoryCustom.getSearchItems(key,limit,offset);
         int totalpage=(itemList.size()%limit==0)?itemList.size()/limit:(itemList.size()/limit)+1;
@@ -208,5 +207,20 @@ public class ProductController {
         model.addAttribute("currentPage",page);
         model.addAttribute("totalPages",totalpage);
         return "admin/search_item";
+    }
+
+    @GetMapping("/product-item/{itemId}")
+    public String getProductItems(@PathVariable Integer itemId,Model model, Principal principal)
+    {
+        addModelAttribute(model);
+        String userEmail=principal.getName();
+        User user=userRepository.getUserByEmail(userEmail);
+        Cart cart=cartRepository.getActiveCartByUserId(user.getId());
+        List<Object[]> itemList=itemRepositoryCustom.getItemByItemId(cart.getId(),user.getId(),itemId);
+        List<ItemModel> items=cartItemMapper.mapToitemModel(itemList);
+        Optional<Brands> brand=brandRepository.findById(items.get(0).getBrand_id());
+        model.addAttribute("item",items.get(0));
+        model.addAttribute("brand",brand.get());
+        return "admin/item_page";
     }
 }

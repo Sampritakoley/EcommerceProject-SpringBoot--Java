@@ -172,7 +172,6 @@ margin-top:20%;
    margin-top:70px;
 }
 #login-box{
-   background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url(../image/login-logo.jpg);
    background-size:cover;
    height:80vh;
    color:white;
@@ -569,10 +568,7 @@ a:hover{
     height: 100%; /* Set the height to occupy the entire parent container */
     text-align: center; /* Optional: centers text, if any, in the same container */
 }
-.empty-cart{
-width:35%;
-height:20%
-}
+
 
 
 .status-box {

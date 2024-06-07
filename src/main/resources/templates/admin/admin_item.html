@@ -22,7 +22,9 @@
 
 
        <div class="scrolling-wrapper">
+
                    <div class="card" th:each="item : ${ItemList}" style="width: 20%%; height: 450px; text-align: center; padding: 10px; box-sizing: border-box; background-color: rgba(0, 0, 0, 0);">
+                       <a th:href="@{'/product-item/'+${item.id}}" style="text-decoration: none; color: inherit;">
                        <div class="badge-box" th:if="${item.available}">
                            <span class="badge">Available</span>
                        </div>
@@ -44,9 +46,11 @@
                            <button th:if="${item.wishlist_id!=0}" onclick="removeWishList(this)" class="btn btn-primary" style="background-color: white;color:#f44336;"><i class="fas fa-heart"></i></button>
                            <button th:if="${item.wishlist_id==0}" onclick="addWishList(this)" class="btn btn-primary" style="color: white;background-color:#f44336;;"><i class="fas fa-heart"></i></button>
                        </div>
+                       </a>
                    </div>
        </div>
    </section>
    <script src="@{/js/script.js}" th:src="@{/js/script.js}"></script>
+   <script src="@{/js/script2.js}" th:src="@{/js/script2.js}"></script>
 </body>
 </html>

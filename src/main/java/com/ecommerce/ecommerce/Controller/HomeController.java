@@ -30,7 +30,7 @@ public class HomeController {
     @GetMapping("/home")
     public String home(Model model)
     {
-        model.addAttribute("title","Home- Shopifi");
+        model.addAttribute("title","Home- ShopMart");
         return "home";
     }
 
@@ -39,7 +39,7 @@ public class HomeController {
     @GetMapping("/signup")
     public String signUp(Model model)
     {
-        model.addAttribute("title","Sign Up- Shopifi");
+        model.addAttribute("title","Sign Up- ShopMart");
         model.addAttribute("RegisterData",new RegisterDataDto());
         return "signup";
     }

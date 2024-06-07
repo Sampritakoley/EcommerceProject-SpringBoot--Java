@@ -57,7 +57,7 @@ public class ItemController {
             User user = userRepository.getUserByEmail(username);
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
-            model.addAttribute("title", "Dashboard - Smart Contact Manager");
+            model.addAttribute("title", "Dashboard - ShopMart");
         } else {
             throw new IllegalStateException("Invalid authentication");
         }
@@ -86,6 +86,8 @@ public class ItemController {
             {
                 throw new Exception();
             }
+            String brand_name = itemRequest.getBrand_name().substring(0, itemRequest.getBrand_name().length() - 1);
+            itemRequest.setBrand_name(brand_name);
             if(!bindingResult.hasErrors())
             {
                 addModelAttribute(model);

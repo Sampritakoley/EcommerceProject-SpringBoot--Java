@@ -53,7 +53,7 @@ public class OrderController {
             User user = userRepository.getUserByEmail(username);
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
-            model.addAttribute("title", "Dashboard - Smart Contact Manager");
+            model.addAttribute("title", "Dashboard - ShopMart");
         } else {
             throw new IllegalStateException("Invalid authentication");
         }

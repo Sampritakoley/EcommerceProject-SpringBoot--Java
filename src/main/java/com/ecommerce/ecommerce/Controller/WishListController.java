@@ -52,7 +52,7 @@ public class WishListController {
 
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
-            model.addAttribute("title", "Dashboard - Smart Contact Manager");
+            model.addAttribute("title", "Dashboard - ShopMart");
         } else {
             throw new IllegalStateException("Invalid authentication");
         }
@@ -90,7 +90,4 @@ public class WishListController {
         model.addAttribute("WishListItems",wishListList);
         return "admin/admin_wishlist";
     }
-
-
-
 }

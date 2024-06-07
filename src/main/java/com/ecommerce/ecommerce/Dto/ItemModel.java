@@ -99,5 +99,16 @@ public class ItemModel{
     private int quantity;
     private String image;
     private int cid;
+
+    public int getBrand_id() {
+        return brand_id;
+    }
+
+    public void setBrand_id(int brand_id) {
+        this.brand_id = brand_id;
+    }
+
     private int wishlist_id;
+
+    private int brand_id;
 }

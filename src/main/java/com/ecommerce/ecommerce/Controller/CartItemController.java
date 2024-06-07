@@ -4,7 +4,6 @@ import com.ecommerce.ecommerce.Dto.CartItemModel;
 import com.ecommerce.ecommerce.Dto.PriceDetailModel;
 import com.ecommerce.ecommerce.Entities.Cart;
 import com.ecommerce.ecommerce.Entities.CartItem;
-import com.ecommerce.ecommerce.Entities.Items;
 import com.ecommerce.ecommerce.Entities.User;
 import com.ecommerce.ecommerce.IService.CartItemServiceInterface;
 import com.ecommerce.ecommerce.Repository.CartItemRepository;
@@ -17,7 +16,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,7 +54,7 @@ public class CartItemController {
 
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
-            model.addAttribute("title", "Dashboard - Smart Contact Manager");
+            model.addAttribute("title", "Dashboard - ShopMart");
         } else {
             throw new IllegalStateException("Invalid authentication");
         }

@@ -20,54 +20,45 @@
         <div class="row align-items-center">
             <div class="col">
                <ul class="row feature-list feature-list-sm">
-                  <div th:each="product : ${Products}" style="width: 27%; height: 100%; color: white; margin-top: 50px;">
+                  <div th:each="product : ${Products}" style="width: 23%; height: 100%; color: white; margin-top: 50px;">
                      <div class="box-cat" style="width: 100%; height: 300px; text-align: center; padding: 10px; box-sizing: border-box;">
-                        <img src="..." th:src="@{'/image/'+${product.product_image}}" class="profile-pic" style="width: 80%; height: 140px; text-align: center; padding: 10px; box-sizing: border-box;"  alt="Profile image">
+                         <a href="#" th:href="@{'/category/'+${cid}+'/products/'+${product.id}}"><img src="..." th:src="@{'/image/'+${product.product_image}}" class="profile-img" style="width: 70%; height: 200px; text-align: center; padding: 10px; box-sizing: border-box;border-radius:50%;"  alt="Profile image"></a>
                         <h5 class="card-title" style="margin: 0; font-size: 16px;" th:text="${product.product_name}"></h5>
-                        <a href="#" th:href="@{'/category/'+${cid}+'/products/'+${product.id}}" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;"><i class="fas fa-eye" style="margin-right: 5px;"></i>View items</a>
                      </div>
                   </div>
                </ul>
             </div>
-            <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation example"  th:if="${totalPages!=0}">
             <ul class="pagination justify-content-center" style="margin:5px">
                 <li class="page-item" th:if="${currentPage!=0}">
-                    <a class="page-link" th:href="@{'/product_form/'+${cid}+'/'+${currentPage-1}}">Previous</a>
+                    <a class="page-link" th:href="@{'/products_list/'+${cid}+'/'+${currentPage-1}}">Previous</a>
                 </li>
-                <li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a class="page-link" th:href="@{'/product_form/'+${cid}+'/'+${i-1}}" href="#"><span th:text="${i}"></span></a></li>
+                <li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a class="page-link" th:href="@{'/products_list/'+${cid}+'/'+${i-1}}" href="#"><span th:text="${i}"></span></a></li>
 
                 <li class="page-item" th:if="${currentPage!=totalPages-1}">
-                    <a class="page-link" th:href="@{'/product_form/'+${cid}+'/'+${currentPage+1}}" href="#">Next</a>
+                    <a class="page-link" th:href="@{'/products_list/'+${cid}+'/'+${currentPage+1}}" href="#">Next</a>
                 </li>
             </ul>
            </nav>
-            <div class="col" id="brand_id">
+            <div class="col" id="brand_id"  th:if="${totalPages!=0}">
                 <main class="grid-item main">
                     <div class="items">
                         <div th:each="brand : ${Brands}" class="item-brand" style="width: 27%; height: 100%; color: white; margin-top: 50px;">
                             <div class="box-cat" style="width: 100%; height: 250px; text-align: center; padding: 10px; box-sizing: border-box;">
-                                <img src="..." th:src="@{'/image/'+${brand.brand_logo}}" class="profile-pic" style="width: 80%; height: 140px; text-align: center; padding: 10px; box-sizing: border-box;"  alt="Profile image">
+                                <img src="..." th:src="@{'/image/'+${brand.brand_logo}}" class="profile-img" style="width: 60%; height: 140px; text-align: center; padding: 10px; box-sizing: border-box;"  alt="Profile image">
                                 <h5 class="card-title" style="margin: 0; font-size: 16px;" th:text="${brand.brand_name}"></h5>
-                                <!-- <a href="#" th:href="@{'/products_list/'+${category.id}}" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;"><i class="fas fa-eye" style="margin-right: 5px;"></i>View Products</a>-->
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
         </div>
-       <!-- <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center" style="margin:5px">
-                <li class="page-item" th:if="${currentPage!=0}">
-                    <a class="page-link" th:href="@{'/contact-list/'+${currentPage-1}}">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a class="page-link" th:href="@{'/contact-list/'+${i-1}}" href="#"><span th:text="${i}"></span></a></li>
-
-                <li class="page-item" th:if="${currentPage!=totalPages-1}">
-                    <a class="page-link" th:href="@{'/contact-list/'+${currentPage+1}}" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>-->
+        <div class="EmptyItem"  th:if="${totalPages==0}" style="text-align: center;">
+            <h2 style="color:#A1D1FC;">Sad No Result!</h2>
+            <p style="color:#A1D1FC;">Sorry mate, Empty item is found inside the category....</p>
+            <img class="logo-empty" src="" th:src="@{/image/NoItemLogo.png}" alt="" style="weight:200px;height:600px;">
+        </div>
+    </div>
 
     </div>
 </section>

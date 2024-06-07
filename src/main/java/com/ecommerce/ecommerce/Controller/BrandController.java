@@ -1,6 +1,7 @@
 package com.ecommerce.ecommerce.Controller;
 
 import com.ecommerce.ecommerce.Dto.BrandRequest;
+import com.ecommerce.ecommerce.Dto.PrivateMessage;
 import com.ecommerce.ecommerce.Entities.Brands;
 import com.ecommerce.ecommerce.Entities.Category;
 import com.ecommerce.ecommerce.Entities.User;
@@ -13,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -52,7 +54,7 @@ public class BrandController {
 
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
-            model.addAttribute("title", "Dashboard - Smart Contact Manager");
+            model.addAttribute("title", "Dashboard - ShopMart");
         } else {
             throw new IllegalStateException("Invalid authentication");
         }
@@ -68,12 +70,12 @@ public class BrandController {
 
 
     @PostMapping("/category/{cid}/brand")
-    public String brandFormPost(@PathVariable Integer cid,
-                                @RequestParam("brand_name")String brand_name,
-                                @RequestParam("descriptions")String descriptions,
-                                @RequestParam("brand_Logo") MultipartFile file,
-                                HttpSession session,
-                                Model model, Principal principal){
+    public ResponseEntity<String> brandFormPost(@PathVariable Integer cid,
+                                                        @RequestParam("brand_name")String brand_name,
+                                                        @RequestParam("descriptions")String descriptions,
+                                                        @RequestParam("brand_Logo") MultipartFile file,
+                                                        HttpSession session,
+                                                        Model model, Principal principal){
         try{
             addModelAttribute(model);
             String userEmail=principal.getName();
@@ -85,6 +87,6 @@ public class BrandController {
             addModelAttribute(model);
             session.setAttribute("message", new Message("Something went wrong","alert-danger"));
         }
-        return "admin/admin_brand_form";
+        return ResponseEntity.ok(brand_name);
     }
 }

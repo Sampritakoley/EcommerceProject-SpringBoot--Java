@@ -648,12 +648,11 @@ function order(button){
                                      sessionStorage.setItem('orderedCartId', null);
                                      sessionStorage.setItem('selectedAddressId', null);
                                      window.location.href = "/orders"
-
 }
 function searchKey(button)
 {
   var searchContainer = button.closest('.search-bar');
   var searchElement = searchContainer.querySelector('#search-key').value;
-  window.location.href = "/search/"+searchElement+"/1";
+  window.location.href = "/search/"+searchElement+"/0";
 }
 

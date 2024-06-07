@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class CartItemService implements CartItemServiceInterface {
@@ -31,19 +33,24 @@ public class CartItemService implements CartItemServiceInterface {
     {
         Cart cart=cartRepository.getActiveCartByUserId(user.getId());
         Items item=itemRepository.getItemById(itemId);
-        double totalPrice=cart.getTotalAmount()+item.getPrice();
-        cart.setTotalAmount(totalPrice);
-        cart.setLastUpdatedTime(new java.sql.Timestamp(new Date().getTime()));
-        cartRepository.save(cart);
-        CartItem cartItem=new CartItem();
-        cartItem.setItem(item);
-        cartItem.setQuantity(1);
-        cartItem.setTotalPrice(item.getPrice());
-        cartItem.setStatus("added");
-        cartItem.setUpdatedTime(new java.sql.Timestamp(new Date().getTime()));
-        cartItem.setCart(cart);
-        cartItem.setItemPrice(item.getPrice());
-        cartItemRepository.save(cartItem);
+        List<CartItem> availableItems = cart.getCartItems().stream()
+                .filter(cartItem-> cartItem.getItem().getId()==itemId && Objects.equals(cartItem.getStatus(), "added"))
+                .collect(Collectors.toList());
+        if(availableItems.size()==0){
+            double totalPrice=cart.getTotalAmount()+item.getPrice();
+            cart.setTotalAmount(totalPrice);
+            cart.setLastUpdatedTime(new java.sql.Timestamp(new Date().getTime()));
+            cartRepository.save(cart);
+            CartItem cartItem=new CartItem();
+            cartItem.setItem(item);
+            cartItem.setQuantity(1);
+            cartItem.setTotalPrice(item.getPrice());
+            cartItem.setStatus("added");
+            cartItem.setUpdatedTime(new java.sql.Timestamp(new Date().getTime()));
+            cartItem.setCart(cart);
+            cartItem.setItemPrice(item.getPrice());
+            cartItemRepository.save(cartItem);
+        }
         return cart;
     }
 
