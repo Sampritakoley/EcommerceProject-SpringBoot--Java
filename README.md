@@ -54,3 +54,6 @@ online shopping experience, allowing users to select products for immediate purc
 ![wishlist](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/79a32f6e-3d5a-4732-a784-ecdb3bf19008)
 
 ![cart item](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/96f3b57f-ef09-49bd-a8bc-b64f50530c02)
+
+Notification Service
+Our project includes a robust notification service implemented using WebSockets. This service is designed to provide real-time updates to clients. Specifically, all administrators connected to the WebSocket receive notifications as soon as a user places an order. Similarly, users receive notifications when an administrator processes the order status, including shipment or delivery-related updates.
