@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{${baseUrl}::layout(~{::section})}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,7 +9,7 @@
 <body>
    <section>
        <ul style="display:flex;">
-           <div class="box-plus" style="margin:10px;">
+           <div class="box-plus" style="margin:10px;" th:if="${role == 'ROLE_ADMIN'}">
                <a href="#" th:href="@{'/category/'+${cid}+'/product/'+${pid}+'/item'}" class="btn btn-secondary" style="margin:30px"><i class="fas fa-plus"></i></a>
            </div>
            <div class="container-search" style="margin:10px;width:80%;">

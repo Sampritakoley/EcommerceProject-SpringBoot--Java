@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class WarehouseController {
@@ -43,6 +44,11 @@ public class WarehouseController {
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
             model.addAttribute("title", "Dashboard - ShopMart");
+            if(Objects.equals(user.getRole(), "ROLE_USER")){
+                model.addAttribute("baseUrl","member/base");
+            }else if(Objects.equals(user.getRole(), "ROLE_ADMIN")){
+                model.addAttribute("baseUrl","admin/base");
+            }
         } else {
             throw new IllegalStateException("Invalid authentication");
         }

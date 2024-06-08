@@ -21,7 +21,7 @@
                       enctype="multipart/form-data">
                     <!--first name field-->
                     <div class="mb-3">
-                        <label for="exampleInputFirstName" class="form-label">First Name</label>
+                        <label for="exampleInputFirstName" class="form-label" style="margin-right:84%;margin-top:5%;">First Name</label>
                         <input type="text"
                                name="first_name"
                                class="form-control"
@@ -29,14 +29,14 @@
                                th:value="${RegisterData.first_name}"
                                th:classappend="${#fields.hasErrors('first_name')} ? 'is-invalid' : ''"
                                placeholder="Enter first name"
-                               aria-describedby="emailHelp">
+                               aria-describedby="emailHelp" style="width:50%;">
                         <!-- to print errors -->
                         <div th:each="error : ${#fields.errors('first_name')}" th:text="${error}" class="invalid-feedback"></div>
                     </div>
 
                     <!--last name field-->
                     <div class="mb-3">
-                        <label for="exampleInputLastName" class="form-label">Last Name</label>
+                        <label for="exampleInputLastName" class="form-label" style="margin-right:84%;">Last Name</label>
                         <input type="text"
                                name="last_name"
                                class="form-control"
@@ -44,14 +44,14 @@
                                th:value="${RegisterData.last_name}"
                                th:classappend="${#fields.hasErrors('last_name')} ? 'is-invalid' : ''"
                                id="exampleInputLastName"
-                               aria-describedby="emailHelp">
+                               aria-describedby="emailHelp"  style="width:50%;">
                         <!-- to print errors -->
                         <div th:each="error : ${#fields.errors('last_name')}" th:text="${error}" class="invalid-feedback"></div>
                     </div>
 
                     <!--email-->
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <label for="exampleInputEmail1" class="form-label" style="margin-right:84%;">Email</label>
                         <input type="email"
                                name="email"
                                class="form-control"
@@ -59,14 +59,14 @@
                                th:value="${RegisterData.email}"
                                th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''"
                                id="exampleInputEmail1"
-                               aria-describedby="emailHelp">
+                               aria-describedby="emailHelp"  style="width:50%;">
                         <!-- to print errors -->
                         <div th:each="error : ${#fields.errors('email')}" th:text="${error}" class="invalid-feedback"></div>
                     </div>
 
                     <!-- role field-->
                     <div class="mb-3">
-                        <label for="exampleInputRole" class="form-label">User Role</label>
+                        <label for="exampleInputRole" class="form-label" style="margin-right:84%;">User Role</label>
                         <input type="text"
                                name="role"
                                class="form-control"
@@ -74,14 +74,14 @@
                                id="exampleInputRole"
                                th:value="${RegisterData.role}"
                                th:classappend="${#fields.hasErrors('role')} ? 'is-invalid' : ''"
-                               aria-describedby="emailHelp">
+                               aria-describedby="emailHelp"  style="width:50%;">
                         <!-- to print errors -->
                         <div th:each="error : ${#fields.errors('role')}" th:text="${error}" class="invalid-feedback"></div>
                     </div>
 
                     <!--password-->
                     <div class="mb-3">
-                        <label for="exampleInputPassword" class="form-label" style="margin-left:auto">Password</label>
+                        <label for="exampleInputPassword" class="form-label" style="margin-left:auto;margin-right:84%;">Password</label>
                         <input type="text"
                                name="password"
                                class="form-control"
@@ -89,7 +89,7 @@
                                id="exampleInputPassword"
                                th:value="${RegisterData.password}"
                                th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''"
-                               aria-describedby="emailHelp">
+                               aria-describedby="emailHelp"  style="width:50%;">
                         <!-- to print errors -->
                         <div th:each="error : ${#fields.errors('password')}" th:text="${error}" class="invalid-feedback"></div>
                     </div>

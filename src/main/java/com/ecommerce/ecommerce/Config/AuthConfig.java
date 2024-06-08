@@ -55,7 +55,7 @@ public class AuthConfig {
                 .authorizeHttpRequests(auth -> auth
                         //.requestMatchers("/user/**").hasRole("USER")
                         //.requestMatchers("/dashboard/**").hasRole("USER")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                 )

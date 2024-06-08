@@ -32,6 +32,8 @@ import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+
 @Controller
 public class ItemController {
 
@@ -58,6 +60,11 @@ public class ItemController {
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
             model.addAttribute("title", "Dashboard - ShopMart");
+            if(Objects.equals(user.getRole(), "ROLE_USER")){
+                model.addAttribute("baseUrl","member/base");
+            }else if(Objects.equals(user.getRole(), "ROLE_ADMIN")){
+                model.addAttribute("baseUrl","admin/base");
+            }
         } else {
             throw new IllegalStateException("Invalid authentication");
         }

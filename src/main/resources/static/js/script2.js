@@ -40,3 +40,24 @@
          // Handle the error response (e.g., show an error message)
      });
  }
+
+function deleteWishList(button) {
+         var cardContainer = button.closest('.col');
+         var wishlist_value = cardContainer.querySelector('.wishlist-value');
+         var wId = parseInt(wishlist_value.textContent);
+         fetch("/remove/wishlist/" + wId, {
+             method: "GET",
+         })
+         .then(response => {
+             if (!response.ok) {
+                 console.error("Error:", response.statusText);
+             }
+             refreshPage();
+         })
+         .catch(error => {
+             console.error("Error:", error);
+         });
+}
+function refreshPage() {
+     location.reload();
+}

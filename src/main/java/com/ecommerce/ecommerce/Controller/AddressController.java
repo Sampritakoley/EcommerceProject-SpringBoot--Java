@@ -24,10 +24,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+
 @Controller
 public class AddressController {
     @Autowired
@@ -51,6 +49,11 @@ public class AddressController {
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
             model.addAttribute("title", "Dashboard - ShopMart");
+            if(Objects.equals(user.getRole(), "ROLE_USER")){
+                model.addAttribute("baseUrl","member/base");
+            }else if(Objects.equals(user.getRole(), "ROLE_ADMIN")){
+                model.addAttribute("baseUrl","admin/base");
+            }
         } else {
             throw new IllegalStateException("Invalid authentication");
         }

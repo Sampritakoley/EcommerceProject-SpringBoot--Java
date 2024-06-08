@@ -414,22 +414,6 @@ function addDeliveryDate(button){
 var stompClient=null;
 var privateStompClient = null;
 
-//connect private channel
-/*function connectPrivateChannel(){
-
-   let socket = new SockJS('/server1');
-   privateStompClient = Stomp.over(socket);
-   privateStompClient.connect({}, function(frame) {
-   console.log(frame);
-   privateStompClient.subscribe('/user/specific', function(response) {
-
-        const mesg = JSON.parse(response.body);
-        console.log(mesg)
-        show(mesg);
-   });
-  });
-}*/
-
 
 function show(mesg){
      console.log(mesg.type+ "  ")
@@ -439,7 +423,8 @@ function show(mesg){
 function connect(role)
 {
       var socket=null;
-      if(role=== "ROLE_ADMIN"){
+      if(role=== "ROLE_ADMIN" || role==="ROLE_USER")
+      {
          socket=new SockJS('/server1')
                stompClient=Stomp.over(socket)
                stompClient.connect({},function(frame){
@@ -456,14 +441,11 @@ function connect(role)
                    })
                })
       }
-
-
        socket = new SockJS('/server1');
        privateStompClient = Stomp.over(socket);
        privateStompClient.connect({}, function(frame) {
        console.log(frame);
        privateStompClient.subscribe('/user/specific', function(response) {
-
             const mesg = JSON.parse(response.body);
             console.log(mesg)
             showMessage(mesg,mesg.to);
@@ -514,23 +496,6 @@ function connect(role)
                                console.log("error")
                                 console.error("Error:", error);
                             });
-
-    /*.then(response => {
-        if (response.ok) {
-            console.log("Notification sent successfully!");
-        } else {
-            console.error("Failed to send notification");
-        }
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });*/
-
-
-
-
-   // $("#message-container-table").prepend(`<tr><td><b>${message.name} :</b> ${message.content}</td></tr>`)
-
  }
 
 //-> subscribe the admin after login

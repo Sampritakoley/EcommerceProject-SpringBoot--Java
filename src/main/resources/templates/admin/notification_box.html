@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/base::layout(~{::section})}">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{${baseUrl}::layout(~{::section})}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <section>
-    <div class="header">
-        <h3 id="header-content" style="color:white;"><i class="fas fa-bell" style="margin:5px;"></i>NOTIFICATIONS</h3>
+    <div class="header" style="  height: 8vh;">
+        <h3 id="header-content" style="color:white;margin-left:50%;margin-top:2%"><i class="fas fa-bell" style="margin:5px;"></i></h3>
     </div>
     <div class="list" th:each="notification, iterStat  : ${notificationList}">
         <div class="list-item"  th:style="${iterStat.index % 2 == 0 ? 'background-color: #EEE8AA;' : 'background-color: #F0E68C;'}">

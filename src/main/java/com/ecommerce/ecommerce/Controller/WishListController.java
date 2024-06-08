@@ -53,6 +53,11 @@ public class WishListController {
             model.addAttribute("role", user.getRole());
             model.addAttribute("user", user);
             model.addAttribute("title", "Dashboard - ShopMart");
+            if(Objects.equals(user.getRole(), "ROLE_USER")){
+                model.addAttribute("baseUrl","member/base");
+            }else if(Objects.equals(user.getRole(), "ROLE_ADMIN")){
+                model.addAttribute("baseUrl","admin/base");
+            }
         } else {
             throw new IllegalStateException("Invalid authentication");
         }
@@ -88,6 +93,8 @@ public class WishListController {
         User user=userRepository.getUserByEmail(userEmail);
         List<WishListModel> wishListList=wishListRepository.getWishListByUserId(user.getId());
         model.addAttribute("WishListItems",wishListList);
+        boolean emptyWishList=wishListList.size()==0?true:false;
+        model.addAttribute("EmptyWishList",emptyWishList);
         return "admin/admin_wishlist";
     }
 }
