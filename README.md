@@ -35,9 +35,14 @@ Role-based authorization is used, where users are assigned roles that grant or r
  This e-commerce project provides a flexible and robust system for managing product categories, products, and product items. 
  This structure allows for complex inventory organization, supporting various e-commerce use cases. The platform also provides 
  comprehensive management capabilities for administrators, including CRUD (Create, Read, Update, Delete) operations for categories, products, and product items.
-Category ![category](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/6df35907-2615-4254-a478-a28d3d87991b)
-Product ![product](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/8d6fd2c2-dc12-4ac0-ae12-689bc2f7e436)
-Product Item ![item-final](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/05e0f4d4-ab0b-4047-a8b9-d037f3e5709a)
+![category](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/a67cd73d-23f9-41f3-8421-b178ff9a372a)
+
+![brand](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/66f1587c-a94b-40b9-92b2-b02c139ae948)
+
+![item](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/bedc0f92-a504-41e5-bf23-4a99793276cb)
+
+![product](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/10e3042f-8935-463e-b3d5-d03ac13fba3c)
+
 
 ## Address Book and Billing Address : 
 This Spring Boot-based e-commerce platform includes an address book feature, allowing users to manage multiple shipping and billing addresses conveniently.
