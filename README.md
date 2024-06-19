@@ -56,9 +56,9 @@ This feature simplifies the checkout process, enabling users to quickly select f
 This Spring Boot-based e-commerce platform includes robust "Add to Cart" and "Wishlist" features. These features play a crucial role in the
 online shopping experience, allowing users to select products for immediate purchase or save them for future consideration.
 
-![wishlist](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/79a32f6e-3d5a-4732-a784-ecdb3bf19008)
+![cart](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/ee98e4d6-fe1f-477a-8f6a-859b3342c589)
 
-![cart item](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/96f3b57f-ef09-49bd-a8bc-b64f50530c02)
+![wishlist](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/3f2f990e-e422-4526-9691-bbecbde7f646)
 
 Notification Service
 Our project includes a robust notification service implemented using WebSockets. This service is designed to provide real-time updates to clients. Specifically, all administrators connected to the WebSocket receive notifications as soon as a user places an order. Similarly, users receive notifications when an administrator processes the order status, including shipment or delivery-related updates.
