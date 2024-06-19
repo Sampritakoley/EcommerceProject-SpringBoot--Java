@@ -28,7 +28,7 @@ For signup, users provide registration details, which are validated and saved to
 spring security by configuring the authentication mechanism in a security configuration class and specified
 user details service, password encoder, and custom authentication logic.
 Role-based authorization is used, where users are assigned roles that grant or restrict access to certain resources or operations. 
-
+![login](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/cb0d9483-1b0b-44fe-a6ed-724e1de5d6b7)
  ADMIN ![admin](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/73b5bcce-955f-4321-9494-aea190482eb6) USER ![user](https://github.com/Sampritakoley/EcommerceProject-SpringBoot--Java/assets/109060246/0eca6854-4ab8-4f86-ab0d-29682fccd50a)
  
  ## Category, Product, and Product Item Features:
